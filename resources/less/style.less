@@ -1,0 +1,96 @@
+@import "vars";
+@import "normalize";
+@import "smart-grid";
+@import "elements";
+@import "pre-header";
+@import "header";
+@import "r-menu";
+@import "home-page";
+@import "catalog";
+@import "button-menu";
+@import "l-asside-info";
+@import "slideShow";
+@import "modal";
+@import "price-filter";
+@import "filter";
+@import "category-product";
+@import "product-data";
+@import "t-product";
+@import "footer";
+
+html {
+  font-size: 16px;
+}
+
+body {
+  max-width: 1920px;
+  margin: 0 auto;
+  min-height: 1px;
+  overflow-x: hidden;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  .fz(16);
+  background-color: #789; //todo Удалить
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  .fz(48);
+}
+
+h2 {
+  .fz(36);
+}
+
+h3 {
+  .fz(24);
+}
+
+h4 {
+  .fz(18);
+}
+
+a {
+  color: @link;
+  text-decoration: none;
+}
+
+p {
+  color: @textDarkGrey;
+  .fz(16);
+}
+
+ul,
+li{
+  .fz(16);
+}
+
+img{
+  line-height: 0;
+}
+
+.wrapper {
+  .wrapper();
+}
+
+.wrapper-full {
+  .wrapper-full();
+}
+
+.left-aside{
+  .col();
+  .size(2);
+}
+
+.img-wrap{
+  img{
+    max-width: 100%;
+  }
+}
+
+//todo doropdown

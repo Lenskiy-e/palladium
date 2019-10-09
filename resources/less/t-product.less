@@ -1,0 +1,43 @@
+@import "vars";
+@import "smart-grid";
+
+.t-product {
+  .col-padding();
+  .size(2);
+
+  background-color: #ffffff;
+  padding: 8px;
+  margin-bottom: 8px;
+  position: relative;
+
+  &-header {
+    text-align: right;
+  }
+
+  .favorites-icon {
+    @size: 20px;
+
+    width: @size;
+    height: @size;
+    fill: @red;
+  }
+
+  &-favorites{
+    position: absolute;
+    top: 17px;
+    right: 24px;
+    padding: 8px;
+    background-color: transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    .transition(.5);
+    line-height: 0;
+
+    &:hover,
+    &:active,
+    &:focus{
+      background-color: @orangeHover;
+      .transition(.5);
+    }
+  }
+}

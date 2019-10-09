@@ -1,0 +1,1 @@
+<button class="button {{ $btnClass }}" type="{{$type}}" id="{{$id}}">@lang("$btnText")</button>

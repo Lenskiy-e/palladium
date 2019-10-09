@@ -1,0 +1,1 @@
+<button class="button {{ $btnClass }}"><a href="{{ $link }}">{{ $btnText }}</a></button>

@@ -1,0 +1,402 @@
+@import "vars";
+@import "smart-grid";
+
+
+.main-element {
+  padding-bottom: 40px;
+  padding-top: 40px;
+  span.bold {
+    font-weight: bold;
+  }
+}
+
+
+/***** BUTTON *****/
+
+
+input, button {
+  &.button {
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+div.button {
+  display: inline-block;
+  a {
+    display: block;
+  }
+}
+
+a.button {
+  text-decoration: none;
+  color: #ffffff;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.button {
+  padding: 8px 14px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  box-sizing: border-box;
+  color: #ffffff;
+  border-radius: 4px;
+  text-transform: uppercase;
+  .fz(16);
+  .transition(.5);
+  line-height: 16px;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  /* BLUE */
+  &.button-blue {
+    .box-s(0, 4px, 8px, rgba(54, 123, 245, 0.24));
+    .button(@blue, #fff, @blueFocus, @blueHover, @blue, 1024);
+  }
+
+  /* ORANGE */
+  &.button-orange {
+    .box-s(0, 4px, 8px, rgba(251, 130, 0, 0.24));
+    .button(@orange, #fff, @orangeFocus, @orangeHover, @orange, 1024);
+  }
+
+  /* DANGER */
+  &.button-danger {
+    .button(@red, @red, @redFocus, @redHover, @red, 1024);
+  }
+
+  /* SUCCESS */
+  &.button-success {
+    .button(@green, #fff, @greenFocus, @greenHover, @green, 1024);
+  }
+
+  /* ATTENTION */
+  &.button-attention {
+    .button(@yellow, #fff, @yellowFocus, @yellowHover, @yellow, 1024);
+  }
+
+
+  &-wrap{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    .button{
+      text-transform: none;
+      .fz(12);
+    }
+  }
+}
+
+/***** DROP DOWN *****/
+
+.drop {
+  &-default {
+    background-color: #ffffff;
+    .box-s(0, 0, 3px, @boxShadowColor);
+    border-radius: 3px;
+    padding-left: 5px;
+    list-style: none;
+  }
+
+  &-item {
+    &-default {
+      padding: 5px;
+    }
+  }
+
+  &-arrow {
+    cursor: pointer;
+    padding-right: 16px;
+
+    &:after {
+      @size: 5px;
+
+      content: '';
+      display: inline-block;
+      width: @size;
+      height: @size;
+      border-style: solid;
+      border-width: @size;
+      box-sizing: border-box;
+      border-color: @dark transparent transparent transparent;
+      position: absolute;
+      top: 8px;
+      right: 0;
+    }
+
+    &.open {
+      &:after {
+        border-color: transparent transparent @dark transparent;
+        top: 3px;
+      }
+    }
+  }
+}
+
+//todo переворот стрелки для .drop-arrow
+
+
+/***** LIST *****/
+.list-default{
+  background-color: #ffffff;
+  .box-s(0, 0, 3px, @boxShadowColor);
+  border-radius: 3px;
+  padding-left: 5px;
+  list-style: none;
+
+  &-item {
+    &-default {
+      padding: 5px;
+    }
+  }
+}
+
+/***** INPUT *****/
+
+.input-default {
+  background-color: #fff;
+  border: 1px solid @grey;
+  padding: 13px 0 13px 40px;
+  box-sizing: border-box;
+  position: relative;
+  outline: none;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  .fz(16);
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  margin-bottom: 1rem;
+
+  &:focus {
+    .box-s(0, 2px, 4px, rgba(8, 35, 48, 0.24));
+  }
+
+  &.access {
+    border-color: @green;
+  }
+  &.error {
+    border-color: @red;
+  }
+}
+
+/***** INPUT CHECKBOX *****/
+
+.checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  .fz(16);
+  user-select: none;
+
+  &:hover {
+    & input ~ .check-mark {
+      background-color: @bgBlue;
+    }
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked ~ .check-mark {
+      background-color: @blue;
+      border-color: @blue;
+
+      &:after {
+        display: block;
+      }
+    }
+
+    &:disabled ~ .check-mark {
+      background-color: @grey;
+      border-color: @grey;
+      cursor: default;
+    }
+  }
+
+  .check-mark {
+    @size: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: @size;
+    width: @size;
+    border: 1px solid @grey;
+    border-radius: 3px;
+    background-color: #fff;
+    box-sizing: border-box;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 6px;
+      top: 0;
+      width: 5px;
+      height: 13px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+/***** INPUT RADIO BUTTON *****/
+
+.radio {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  .fz(16);
+  user-select: none;
+  min-height: 24px;
+
+  &:hover {
+    & input {
+      & ~ .radio-mark {
+        background-color: @bgBlue;
+      }
+    }
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked ~ .radio-mark {
+      background-color: @blue;
+      &:after {
+        display: block;
+      }
+    }
+  }
+
+  .radio-mark {
+    @size: 24px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: @size;
+    width: @size;
+    background-color: #eee;
+    border-radius: 50%;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      top: 6px;
+      left: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: white;
+    }
+  }
+}
+
+/***** MODAL *****/
+
+#modal {
+  margin: 10vh auto;
+  background-color: #ffffff;
+  .box-s(0, 4px, 8px, rgba(8, 35, 48, 0.24));
+  border-radius: 5px;
+  padding: 16px;
+  box-sizing: border-box;
+  width: 50vw;
+  display: none;
+  z-index: 1001;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  //bottom: 0;
+
+  &.open {
+    display: block;
+
+    & + #overlay {
+      display: block;
+    }
+  }
+}
+
+.modal {
+  &-title {
+    display: flex;
+
+    h2 {
+      .fz(24);
+      font-weight: 500;
+      color: @textDarkGrey;
+      text-align: center;
+      margin: 0 0 20px;
+      flex: 1;
+    }
+  }
+
+  &-close {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    &:hover:after,
+    &:hover:before {
+      background-color: @dark;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      right: 11px;
+      width: 2px;
+      height: 20px;
+      background-color: @grey;
+      border-radius: 3px;
+    }
+
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &-content {
+    display: block;
+    min-width: 100%;
+
+    .input-default {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+  }
+}

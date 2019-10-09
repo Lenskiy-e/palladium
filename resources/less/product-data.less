@@ -1,0 +1,169 @@
+@import "vars";
+@import "smart-grid";
+
+.t-product {
+  &-wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  &-id {
+    text-align: right;
+  }
+
+  &-image {
+    background-color: #ffffff;
+    text-align: center;
+    padding-left: 3px;
+    padding-right: 3px;
+
+    img {
+      max-width: 350px;
+      max-height: 300px;
+    }
+  }
+
+  &-name {
+    margin-top: 8px;
+    padding-left: 3px;
+    padding-right: 3px;
+
+    a {
+      .fz(14);
+      color: @textDarkGrey;
+
+      &:hover {
+        color: @textMiddleGrey;
+      }
+    }
+  }
+
+  &-price {
+    padding-left: 3px;
+    padding-right: 3px;
+
+    p {
+      .fz(18);
+      margin-bottom: 8px;
+    }
+
+    span {
+      color: @textDarkGrey;
+    }
+    .price {
+
+      &-old {
+        position: relative;
+        color: @red;
+        text-decoration: line-through;
+        .fz(14);
+
+        span {
+          color: @greyColor;
+        }
+      }
+    }
+  }
+
+  &-rating {
+    display: flex;
+    align-content: flex-end;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .reviews-icon {
+      @size: 14px;
+
+      width: @size;
+      height: @size;
+      fill: @blue;
+      margin-left: 4px;
+    }
+  }
+
+  &-button {
+    .button-orange {
+      text-transform: unset;
+      .fz(14);
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      span{
+        margin-left: 8px;
+      }
+    }
+
+    .cart-icon {
+      @size: 24px;
+      .transition(.5);
+
+      width: @size;
+      height: @size;
+      fill: #fff;
+    }
+  }
+}
+
+.rating {
+  &-count {
+    .fz(12);
+    margin-left: 12px;
+  }
+}
+
+.product {
+  &-id {
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+
+    span:first-child {
+      border: 1px solid @dark;
+      padding: 2px 4px;
+    }
+
+    &-text {
+      display: inline-block;
+      .fz(11);
+    }
+  }
+}
+
+.star-rating {
+  display: inline-block;
+
+  &__checkbox {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+  }
+
+  &__star {
+    display: inline-block;
+    padding: 2px;
+    vertical-align: middle;
+    line-height: 1;
+   .fz(12);
+    color: #ABABAB;
+    transition: color 0.2s ease-out;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.is-selected {
+      color: #FFD700;
+    }
+
+    &.is-disabled:hover {
+      cursor: default;
+    }
+  }
+}

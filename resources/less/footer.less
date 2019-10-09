@@ -1,0 +1,34 @@
+@import "vars";
+@import "smart-grid";
+
+footer{
+  background-color: @footerBg;
+}
+
+#footer{
+  padding-top: 30px;
+  padding-bottom: 40px;
+  
+  ul {
+    background-color: @footerBg;
+    box-shadow: none;
+  }
+}
+
+#overlay{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,.3);
+  z-index: 1000;
+
+  &.active{
+    display: block;
+  }
+}

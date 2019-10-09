@@ -1,0 +1,12 @@
+.form-group input{
+    position: relative;
+}
+
+#gifts .product_list{
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    border: 1px solid;
+}
+
+

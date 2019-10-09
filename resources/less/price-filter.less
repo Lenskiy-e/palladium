@@ -1,0 +1,249 @@
+@import "vars";
+@import "smart-grid";
+
+.irs {
+  @lineHeight: 8px;
+
+  position: relative;
+  display: block;
+  user-select: none;
+  height: 55px;
+
+  &-line {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    outline: none !important;
+    height: @lineHeight;
+    top: 33px;
+    background: @grey;
+    border-radius: 16px;
+
+    &-left,
+    &-mid,
+    &-right {
+      position: absolute;
+      display: block;
+      top: 0;
+      height: 8px;
+    }
+
+    &-left {
+      left: 0;
+      width: 11%;
+    }
+    &-mid {
+      left: 9%;
+      width: 82%;
+    }
+    &-right {
+      right: 0;
+      width: 11%;
+    }
+  }
+
+  &-bar {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 0;
+    height: @lineHeight;
+    top: 33px;
+    background: @blue;
+
+    &-edge {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &-shadow {
+    position: absolute;
+    display: none;
+    left: 0;
+    width: 14px;
+    border: 1px solid #428bca;
+    border-right: 0;
+    background: #428bca;
+    background: linear-gradient(to top, rgba(66, 139, 202, 1) 0%, rgba(127, 195, 232, 1) 100%); /* W3C */
+    height: 2px;
+    top: 38px;
+    background: #000;
+    opacity: 0.3;
+    border-radius: 5px;
+  }
+
+  &-slider {
+    position: absolute;
+    display: block;
+    z-index: 1;
+    top: @lineHeight + 15px;
+    width: 24px;
+    height: 24px;
+    border: 1px solid transparent;
+    background-color: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+
+    &.state_hover, &:hover {
+      border-color: lighten(@blue, 30%);
+      .box-s(0, 0, 5px, @blue);
+    }
+
+    &.type_last {
+      z-index: 2;
+    }
+  }
+
+  &-min,
+  &-max {
+    color: #333;
+    font-size: 12px;
+    line-height: 1.333;
+    text-shadow: none;
+    top: 0;
+    padding: 1px 5px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    position: absolute;
+    display: block;
+    cursor: default;
+  }
+
+  &-min {
+    left: 0;
+  }
+
+  &-max {
+    right: 0;
+  }
+
+  &-from,
+  &-to,
+  &-single {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    cursor: default;
+    white-space: nowrap;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.333;
+    text-shadow: none;
+    padding: 1px 5px;
+    background: #428bca;
+    border-radius: 3px;
+  }
+
+  &-from,
+  &-to,
+  &-max,
+  &-min {
+    display: none !important;
+  }
+
+  &-grid {
+    position: absolute;
+    display: none;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 27px;
+
+    &-pol {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 8px;
+      opacity: 0.5;
+      background: #428bca;
+
+      &.small {
+        height: 4px;
+        background: #999;
+      }
+    }
+
+    &-text {
+      position: absolute;
+      left: 0;
+      white-space: nowrap;
+      text-align: center;
+      font-size: 9px;
+      line-height: 9px;
+      padding: 0 3px;
+      bottom: 5px;
+      color: #99a4ac;
+    }
+  }
+
+  &-with-grid {
+    height: 75px;
+
+    &.irs-grid {
+      display: block;
+    }
+  }
+
+  &-disable-mask {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: -1%;
+    width: 102%;
+    height: 100%;
+    cursor: default;
+    background: rgba(0, 0, 0, 0.0);
+    z-index: 2;
+  }
+
+  &-disabled {
+    opacity: 0.4;
+  }
+
+  &-hidden-input {
+    position: absolute !important;
+    display: block !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    outline: none !important;
+    z-index: -9999 !important;
+    background: none !important;
+    border-style: solid !important;
+    border-color: transparent !important;
+  }
+}
+
+.lt-ie9 {
+  .irs-disable-mask {
+    background: #000;
+    filter: alpha(opacity=0);
+    cursor: not-allowed;
+  }
+
+  .irs-shadow {
+    filter: alpha(opacity=30);
+  }
+
+  .irs-min,
+  .irs-max {
+    background: #ccc;
+  }
+
+  .irs-from,
+  .irs-to,
+  .irs-single {
+    background: #999;
+  }
+}
